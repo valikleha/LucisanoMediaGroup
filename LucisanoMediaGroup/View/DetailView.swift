@@ -12,10 +12,10 @@ struct DetailView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @GestureState private var dragOffset = CGSize.zero
     let movieId: Int
-    let movie: Movie
-    let movieTitle: String
-    let movieDescription: String
+    @State var movie: Movie
+  
     @StateObject var imageLoader = ImageLoader()
+    
     
     
     @StateObject private var movieDetailState = MovieDetailState()
@@ -31,49 +31,61 @@ struct DetailView: View {
                
                 
                 ZStack {
-                   
-                    List {
-                        if let image = imageLoader.image {
-                            Image(uiImage: image)
-                                .resizable()
-                        }
-                       
+                    AsyncImage(url: movie.posterURL){image in
+                            image
+                            .resizable()
+                            .scaledToFit()
+                                                    
+                    } placeholder: {
+                        Color.black
                     }
-                  
-                           
-                        Image("black-adam-image")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxHeight: .infinity, alignment: .top)
-                    
+                    .frame(maxHeight: .infinity, alignment: .top)
+              
+//                   Image("black-adam-image")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(maxHeight: .infinity, alignment: .top)
                     VStack {
                         
                         LinearGradient (colors: gradient, startPoint: .top, endPoint: .bottom)
-                            .frame(height: 350)
-                            .padding(.top, 300)
+                            .frame(height: 400)
+                            .padding(.top, 200)
                         
-                    }
+                    } .frame(maxHeight: .infinity, alignment: .bottom)
                     
                     
                     VStack (alignment: .center, spacing: 0) {
-                        Text (movieTitle)
+                        Text (movie.title)
                             .font(Fonts.movieHeadline)
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
-                        
-                                        .padding(.top, 100)
-                        HStack (alignment: .center, spacing: 10) {
-                            Text("Action")
-                                .font(Fonts.movieSubtitle)
-                                .foregroundColor(.white)
+                            .padding(.top, 200)
+                   
+                      
+                            
+                           
+                        HStack (alignment: .center, spacing: 5) {
                             Text ("2022")
                                 .font(Fonts.movieSubtitle)
                                 .foregroundColor(.white)
                            
+                            Text("Action")
+                                .font(Fonts.movieSubtitle)
+                                .foregroundColor(.white)
+                            Text("2h 5m")
+                                .font(Fonts.movieSubtitle)
+                                .foregroundColor(.white)
+                         
                         }
                         .padding(.top, 10)
+                        
+                        Text (movie.overview)
+                            .font(Fonts.description)
+                            .foregroundColor(.white)
+                        
+                            .padding()
                     }
-                    .padding(.top, 50)
+                  
                     
                     
                     
@@ -108,6 +120,9 @@ struct DetailView: View {
 //            .task(loadMovie)
 //            .overlay(DataFetchPhaseOverlayView(phase: movieDetailState.phase, retryAction: loadMovie))
         }
+        .onAppear() {
+            imageLoader.loadImage(with: movie.posterURL)
+        }
         
         .navigationBarBackButtonHidden(true)
         
@@ -121,10 +136,6 @@ struct DetailView: View {
         
         
         
-    }
-   
-    private func loadMovie() {
-        Task { await self.movieDetailState.loadMovie(id: self.movieId) }
     }
 
 }
@@ -191,6 +202,6 @@ extension URL: Identifiable {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(movieId: Movie.stubbedMovie.id, movie: Movie.stubbedMovie, movieTitle: "Black Adam", movieDescription: Movie.stubbedMovie.overview).preferredColorScheme(.light)
+        DetailView(movieId: Movie.stubbedMovie.id, movie: Movie.stubbedMovie).preferredColorScheme(.light)
     }
 }

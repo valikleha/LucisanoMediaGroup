@@ -36,7 +36,9 @@ struct MoviesView: View {
                         HStack (spacing: 20) {
                             ForEach (self.movies) {  movie in
                                 NavigationLink {
-                                    DetailView(movieId: movie.id, movie: Movie.stubbedMovie, movieTitle: movie.title, movieDescription: movie.overview)
+                                    LazyView(
+                                        DetailView(movieId: movie.id, movie: movie)
+                                    )
                                 } label: {
                                     MovieCardView(movie: movie)
                                         //.frame(width: 100, height: 200)
@@ -63,7 +65,8 @@ struct MoviesView: View {
                             HStack (spacing: 10) {
                                 ForEach (genres.indices, id: \.self) { movie in
                                     NavigationLink {
-                                        DetailView (movieId: Movie.stubbedMovie.id, movie: Movie.stubbedMovie, movieTitle: "Wakanda", movieDescription: "Hello")
+                                       
+                                        
                                     } label: {
                                         Image(genres[movie])
                                             .resizable()
@@ -89,11 +92,13 @@ struct MoviesView: View {
                         
                         ScrollView (.horizontal, showsIndicators: false){
                             HStack (spacing: 15) {
-                                ForEach (posters.indices, id: \.self) { index in
+                                ForEach (posters.indices, id: \.self) { movie in
                                     NavigationLink {
-                                        DetailView(movieId: Movie.stubbedMovie.id, movie: Movie.stubbedMovie, movieTitle: "Black Adam", movieDescription: "Hello")
+//                                        LazyView(
+//                                            DetailView(movieId: movie.id, movie: movie)
+//                                        )
                                     } label: {
-                                        Image(posters[index])
+                                        Image(posters[movie])
                                             .resizable()
                                             .scaledToFit()
                                             .frame(height: 200)
@@ -119,7 +124,7 @@ struct MoviesView: View {
                             HStack (spacing: 15) {
                                 ForEach (posters.indices, id: \.self) { index in
                                     NavigationLink {
-                                        DetailView(movieId: Movie.stubbedMovie.id, movie: Movie.stubbedMovie, movieTitle: "Black Adam", movieDescription: "Hello")
+                                       
                                     } label: {
                                         Image(posters[index])
                                             .resizable()

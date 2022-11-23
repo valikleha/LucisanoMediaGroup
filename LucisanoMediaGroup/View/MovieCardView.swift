@@ -28,6 +28,8 @@ struct MovieCardView: View {
                         Image(uiImage: image)
                             .resizable()
                     }
+                  
+                    
                 }
               
                 .scaledToFit()

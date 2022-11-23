@@ -32,6 +32,6 @@ struct Fonts {
         return Font.custom("AvenirNext-Regular", size: 18)
     }
     public static var movieSubtitle: Font {
-        return Font.custom("AvenirNext-Medium", size: 14)
+        return Font.custom("AvenirNext-Medium", size: 16)
     }
 }

@@ -87,7 +87,7 @@ struct Movie: Decodable, Identifiable, Hashable {
         guard let runtime = self.runtime, runtime > 0 else {
             return "n/a"
         }
-        return Movie.durationFormatter.string(from: TimeInterval(runtime) * 60) ?? "n/a"
+        return Movie.durationFormatter.string(from: TimeInterval(runtime) * 60) ?? "hi"
     }
     
     var cast: [MovieCast]? {

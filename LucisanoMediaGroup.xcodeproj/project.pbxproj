@@ -50,6 +50,8 @@
 		8AD84E6A292E379D009503A1 /* MovieSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD84E69292E379D009503A1 /* MovieSection.swift */; };
 		8AD84E6C292E38D4009503A1 /* MovieHomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD84E6B292E38D4009503A1 /* MovieHomeState.swift */; };
 		8AD84E6E292E3D4B009503A1 /* MovieCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD84E6D292E3D4B009503A1 /* MovieCarouselView.swift */; };
+		8AD84E70292E4CD2009503A1 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD84E6F292E4CD2009503A1 /* CustomText.swift */; };
+		8AD84E72292E6E10009503A1 /* LazyViewq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD84E71292E6E10009503A1 /* LazyViewq.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		8AD84E69292E379D009503A1 /* MovieSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSection.swift; sourceTree = "<group>"; };
 		8AD84E6B292E38D4009503A1 /* MovieHomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeState.swift; sourceTree = "<group>"; };
 		8AD84E6D292E3D4B009503A1 /* MovieCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCarouselView.swift; sourceTree = "<group>"; };
+		8AD84E6F292E4CD2009503A1 /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
+		8AD84E71292E6E10009503A1 /* LazyViewq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyViewq.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				8A12FA6C2926C6B200FD11B1 /* Fonts.swift */,
+				8AD84E6F292E4CD2009503A1 /* CustomText.swift */,
+				8AD84E71292E6E10009503A1 /* LazyViewq.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 				8A79C1C429253B7C002109B8 /* ContentView.swift in Sources */,
 				8AA2C6AD292BDB11004D8F92 /* ImageLoader.swift in Sources */,
 				8AA2C6A6292BCAD5004D8F92 /* MovieStore.swift in Sources */,
+				8AD84E72292E6E10009503A1 /* LazyViewq.swift in Sources */,
 				8AA2C6AF292BDD95004D8F92 /* MovieCardView.swift in Sources */,
 				8AA2C6A8292BCBA1004D8F92 /* Utils.swift in Sources */,
 				8AD84E6A292E379D009503A1 /* MovieSection.swift in Sources */,
@@ -496,6 +503,7 @@
 				8A39C61F2927A4B500EB33AA /* SearchView.swift in Sources */,
 				8AD65C63292AA6E900C4D9EE /* SwiftUIView.swift in Sources */,
 				8AD84E6E292E3D4B009503A1 /* MovieCarouselView.swift in Sources */,
+				8AD84E70292E4CD2009503A1 /* CustomText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
