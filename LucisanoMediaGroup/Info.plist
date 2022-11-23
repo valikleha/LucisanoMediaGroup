@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AvenirNext-Regular.otf</string>
+		<string>AvenirNext-Bold.otf</string>
+		<string>AvenirNext-UltraLight.otf</string>
+		<string>AvenirNext-DemiBold.otf</string>
+		<string>AvenirNext-Medium.otf</string>
+		<string>AvenirNext-Heavy.otf</string>
+	</array>
+</dict>
+</plist>
