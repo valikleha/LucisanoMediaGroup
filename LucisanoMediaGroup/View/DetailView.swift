@@ -48,7 +48,7 @@ struct DetailView: View {
                     VStack {
                         
                         LinearGradient (colors: gradient, startPoint: .top, endPoint: .bottom)
-                            .frame(height: 400)
+                            .frame(height: 500)
                             .padding(.top, 200)
                         
                     } .frame(maxHeight: .infinity, alignment: .bottom)
@@ -64,14 +64,20 @@ struct DetailView: View {
                       
                             
                            
-                        HStack (alignment: .center, spacing: 5) {
+                        HStack (alignment: .center, spacing: 10) {
                             Text ("2022")
                                 .font(Fonts.movieSubtitle)
+                            
                                 .foregroundColor(.white)
-                           
+                           Text("•")
+                                .font(Fonts.movieSubtitle)
+                                .foregroundColor(.white)
                             Text("Action")
                                 .font(Fonts.movieSubtitle)
                                 .foregroundColor(.white)
+                            Text("•")
+                                .font(Fonts.movieSubtitle)
+                                 .foregroundColor(.white)
                             Text("2h 5m")
                                 .font(Fonts.movieSubtitle)
                                 .foregroundColor(.white)
@@ -84,7 +90,10 @@ struct DetailView: View {
                             .foregroundColor(.white)
                         
                             .padding()
-                    }
+                            .padding(.leading, 5)
+                            .padding(.trailing, 5)
+                        
+                    }.padding(.top, 100)
                   
                     
                     
@@ -117,11 +126,7 @@ struct DetailView: View {
             }
             .background(Color(.black))
             .ignoresSafeArea()
-//            .task(loadMovie)
-//            .overlay(DataFetchPhaseOverlayView(phase: movieDetailState.phase, retryAction: loadMovie))
-        }
-        .onAppear() {
-            imageLoader.loadImage(with: movie.posterURL)
+
         }
         
         .navigationBarBackButtonHidden(true)
@@ -137,7 +142,9 @@ struct DetailView: View {
         
         
     }
-
+    private var movieGenreYearDurationText: String {
+        "\(movie.genreText) · \(movie.yearText) · \(movie.durationText)"
+    }
 }
 struct MovieDetailListView: View {
        

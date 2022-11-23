@@ -117,7 +117,6 @@ struct Movie: Decodable, Identifiable, Hashable {
 }
 
 struct MovieGenre: Decodable {
-    
     let name: String
 }
 
