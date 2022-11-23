@@ -25,7 +25,7 @@ class MovieStore: MovieService {
         return movieResponse.results
     }
     
-    func fetchMovie(id: Int) async throws -> [Movie] {
+    func fetchMovie(id: Int) async throws -> Movie {
         guard let url = URL(string: "\(baseAPIURL)/movie\(id)") else {
             throw MovieError.invalidEndpoint
         }

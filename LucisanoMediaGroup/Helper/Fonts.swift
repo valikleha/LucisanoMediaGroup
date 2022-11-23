@@ -17,7 +17,7 @@ struct Fonts {
         return Font.custom("AvenirNext-Bold", size: 45)
     }
     public static var movieHeadline: Font {
-        return Font.custom("AvenirNext-Bold", size: 42)
+        return Font.custom("AvenirNext-Bold", size: 40)
     }
     public static var subTitle: Font {
         return Font.custom("AvenirNext-Medium", size: 18)

@@ -7,22 +7,25 @@
 
 import Foundation
 
+
 protocol MovieService {
     func fetchMovies(from endpoint: MovieListEndpoint) async throws -> [Movie]
-    func fetchMovie(id: Int) async throws -> [Movie]
+    func fetchMovie(id: Int) async throws -> Movie
     func searchMovie(query: String) async throws -> [Movie]
     
 }
 
 enum MovieListEndpoint: String, CaseIterable {
-    case thisWeek = "this-week"
-    case trending = "trending"
-    case comingSoon = "coming-soon"
+    case thisWeek = "this_week"
+    case trending
+    case upcoming
+    case comingSoon = "coming_soon"
     
     var description: String {
         switch self {
         case .thisWeek: return "This week"
         case .trending: return "Trending"
+        case .upcoming: return "Upcoming"
         case .comingSoon: return "Coming soon"
         }
         

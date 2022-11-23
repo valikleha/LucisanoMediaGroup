@@ -11,6 +11,8 @@ struct MoviesView: View {
     
     @State var posters: [String] = ["wakanda-image", "black-adam-image", "wakanda-image", "black-adam-image"]
     @State var genres: [String] = ["action", "adventure", "comedy", "drama", "fantasy", "horror", "thriller"]
+   @StateObject private var movieView = MovieHomeState()
+    
     let title: String
     let movies: [Movie]
     var body: some View {
@@ -31,113 +33,114 @@ struct MoviesView: View {
                         .padding(.bottom, 10)
                     
                     ScrollView (.horizontal, showsIndicators: false){
-                        HStack (spacing: 15) {
+                        HStack (spacing: 20) {
                             ForEach (self.movies) {  movie in
-                                //NavigationLink {
-                                //DetailView()
-                                //} label: {
-                                MovieCardView(movie: movie)
-                                    .frame(width: 140, height: 200)
-                                
-                            }
-                        }
-                        .offset(x: 20)
-                        .padding(.trailing, 40)
-                    }
-                    
-                    
-                    
-                }
-                VStack (alignment: .leading, spacing: 0){
-                    Text("Genres")
-                        .font(Fonts.categories)
-                        .padding(.leading, 20)
-                        .padding(.top, 10)
-                        .padding(.bottom, 10)
-                    
-                    ScrollView (.horizontal, showsIndicators: false){
-                        HStack (spacing: 15) {
-                            ForEach (genres.indices, id: \.self) { index in
                                 NavigationLink {
-                                    DetailView()
+                                    DetailView(movieId: movie.id, movie: Movie.stubbedMovie, movieTitle: movie.title, movieDescription: movie.overview)
                                 } label: {
-                                    Image(genres[index])
-                                        .resizable()
+                                    MovieCardView(movie: movie)
+                                        //.frame(width: 100, height: 200)
                                     
-                                        .aspectRatio(16/9, contentMode: .fit)
-                                        .frame(height: 100)
-                                        .cornerRadius(8)
                                 }
-                                
                             }
+                            
+                            .offset(x: 20)
+                               
                         }
-                        
-                        .offset(x: 20)
                         .padding(.trailing, 40)
                         
+                        
+                        
                     }
-                }
-                VStack (alignment: .leading, spacing: 0){
-                Text("Trending")
-                    .font(Fonts.categories)
-                    .padding(.leading, 20)
-                    .padding(.top, 10)
-                    .padding(.bottom, 10)
-                
-                ScrollView (.horizontal, showsIndicators: false){
-                    HStack (spacing: 15) {
-                        ForEach (posters.indices, id: \.self) { index in
-                            NavigationLink {
-                                DetailView()
-                            } label: {
-                                Image(posters[index])
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 200)
-                                    .cornerRadius(8)
+                    VStack (alignment: .leading, spacing: 0){
+                        Text("Genres")
+                            .font(Fonts.categories)
+                            .padding(.leading, 20)
+                            .padding(.top, 10)
+                            .padding(.bottom, 10)
+                        
+                        ScrollView (.horizontal, showsIndicators: false){
+                            HStack (spacing: 10) {
+                                ForEach (genres.indices, id: \.self) { movie in
+                                    NavigationLink {
+                                        DetailView (movieId: Movie.stubbedMovie.id, movie: Movie.stubbedMovie, movieTitle: "Wakanda", movieDescription: "Hello")
+                                    } label: {
+                                        Image(genres[movie])
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(height: 100)
+                                            .cornerRadius(8)
+                                    }
+                                    
+                                }
                             }
+                            
+                            .offset(x: 20)
+                            .padding(.trailing, 40)
                             
                         }
                     }
-                    
-                    .offset(x: 20)
-                    .padding(.trailing, 40)
-                    
-                }
-            }
-                VStack (alignment: .leading, spacing: 0){
-                Text("Coming soon")
-                    .font(Fonts.categories)
-                    .padding(.leading, 20)
-                    .padding(.top, 10)
-                    .padding(.bottom, 10)
-                
-                ScrollView (.horizontal, showsIndicators: false){
-                    HStack (spacing: 15) {
-                        ForEach (posters.indices, id: \.self) { index in
-                            NavigationLink {
-                                DetailView()
-                            } label: {
-                                Image(posters[index])
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 200)
-                                    .cornerRadius(8)
+                    VStack (alignment: .leading, spacing: 0){
+                        Text("Trending")
+                            .font(Fonts.categories)
+                            .padding(.leading, 20)
+                            .padding(.top, 10)
+                            .padding(.bottom, 10)
+                        
+                        ScrollView (.horizontal, showsIndicators: false){
+                            HStack (spacing: 15) {
+                                ForEach (posters.indices, id: \.self) { index in
+                                    NavigationLink {
+                                        DetailView(movieId: Movie.stubbedMovie.id, movie: Movie.stubbedMovie, movieTitle: "Black Adam", movieDescription: "Hello")
+                                    } label: {
+                                        Image(posters[index])
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(height: 200)
+                                            .cornerRadius(8)
+                                    }
+                                    
+                                }
                             }
+                            
+                            .offset(x: 20)
+                            .padding(.trailing, 40)
                             
                         }
                     }
-                    
-                    .offset(x: 20)
-                    .padding(.trailing, 40)
-                    
-                }
-            }
-                   
+                    VStack (alignment: .leading, spacing: 0){
+                        Text("Coming soon")
+                            .font(Fonts.categories)
+                            .padding(.leading, 20)
+                            .padding(.top, 10)
+                            .padding(.bottom, 10)
+                        
+                        ScrollView (.horizontal, showsIndicators: false){
+                            HStack (spacing: 15) {
+                                ForEach (posters.indices, id: \.self) { index in
+                                    NavigationLink {
+                                        DetailView(movieId: Movie.stubbedMovie.id, movie: Movie.stubbedMovie, movieTitle: "Black Adam", movieDescription: "Hello")
+                                    } label: {
+                                        Image(posters[index])
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(height: 200)
+                                            .cornerRadius(8)
+                                    }
+                                    
+                                }
+                            }
+                            
+                            .offset(x: 20)
+                            .padding(.trailing, 40)
+                            
+                        }
+                    }
+                    .padding(.bottom, 25)
                 }   .frame(maxWidth: .infinity)
                 
                 
-                    .padding(.bottom, 20)
+                
                 
             }
         }
@@ -155,7 +158,7 @@ struct MoviesView: View {
     @ViewBuilder
     func getHeader() -> some View {
         VStack  {
-            VStack (spacing: -2){
+            VStack (alignment: .center, spacing: -2){
                 Text("Movies")
                     .font(Fonts.headline)
                     .padding(.top, 30)
@@ -170,20 +173,73 @@ struct MoviesView: View {
                         .tracking(-1)
                 }
                 
-                Image("multicinema")
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(8)
-                    .frame(height: 100)
-                    .padding(.top, 20)
+                
+                //                HStack (alignment: .center) {
+                //                    Image("multicinema")
+                //                        .resizable()
+                //                        .scaledToFit()
+                //                        .cornerRadius(8)
+                //                        .frame(height: 100)
+                //                    .padding(.top, 20)
+                //                    .padding(.leading, 45)
+                //
+                //                    Image(systemName: "arrowtriangle.down.square")
+                //                        .font(.system(size: 24))
+                //                        .padding(.top, 20)
+                //
+                //                }
+                //                Text ("Multicinema Modernissimo")
+                //                    .font(Fonts.movieTitle)
+                //                    .padding(.top, 15)
+                //                    .padding(.leading, 10)
+                //                HStack (alignment: .center) {
+                //                    Image("happy-maxicinema")
+                //                        .resizable()
+                //                        .scaledToFit()
+                //                        .cornerRadius(8)
+                //                        .frame(height: 100)
+                //                    .padding(.top, 20)
+                //                    .padding(.leading, 45)
+                //
+                //                    Image(systemName: "arrowtriangle.down.square")
+                //                        .font(.system(size: 24))
+                //                        .padding(.top, 20)
+                //
+                //                }
+                //                Text ("Multicinema Modernissimo")
+                //                    .font(Fonts.movieTitle)
+                //                    .padding(.top, 15)
+                //                    .padding(.leading, 10)
+                HStack (alignment: .center) {
+                    
+                    Image("multicinema")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(8)
+                        .frame(height: 100)
+                        .padding(.top, 20)
+                        .padding(.leading, 45)
+                    
+                    Image(systemName: "arrowtriangle.down.circle.fill")
+                        .font(.system(size: 24))
+                        .padding(.top, 25)
+                        .padding(.leading, 5)
+                    
+                }
+                
+                
+                
                 Text ("Multicinema Modernissimo")
                     .font(Fonts.movieTitle)
                     .padding(.top, 15)
+                    .padding(.leading, 10)
             }
-            
         }
-        
     }
+    
+    
+    
+    
     
     
     
@@ -213,8 +269,9 @@ struct MoviesView: View {
     
     struct MoviesView_Previews: PreviewProvider {
         static var previews: some View {
-            MoviesView(title: "Latest", movies: Movie.stubbedMovies).preferredColorScheme(.light)
+            //            MoviesView(title: "Latest", movies: Movie.stubbedMovies).preferredColorScheme(.light)
             MoviesView(title: "Latest", movies: Movie.stubbedMovies).preferredColorScheme(.dark)
         }
     }
-
+    
+}
