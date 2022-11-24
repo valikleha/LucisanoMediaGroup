@@ -29,9 +29,21 @@ struct Fonts {
         return Font.custom("AvenirNext-Regular", size: 14)
     }
     public static var description: Font {
-        return Font.custom("AvenirNext-Regular", size: 18)
+        return Font.custom("AvenirNext-Regular", size: 16)
     }
     public static var movieSubtitle: Font {
-        return Font.custom("AvenirNext-Medium", size: 16)
+        return Font.custom("AvenirNext-Medium", size: 14)
+    }
+    public static var buttonFont: Font {
+        return Font.custom("AvenirNext-Bold", size: 22)
+    }
+    public static var imdbDescription: Font {
+        return Font.custom("AvenirNext-Medium", size: 14)
+    }
+    public static var timeeDetail: Font {
+        return Font.custom("AvenirNext-Bold", size: 16)
+    }
+    public static var dateDetail: Font {
+        return Font.custom("AvenirNext-Bold", size: 18)
     }
 }

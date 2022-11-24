@@ -13,144 +13,367 @@ struct DetailView: View {
     @GestureState private var dragOffset = CGSize.zero
     let movieId: Int
     @State var movie: Movie
-  
+    
     @StateObject var imageLoader = ImageLoader()
     
     
     
     @StateObject private var movieDetailState = MovieDetailState()
     //@State private var selectedTrailerURL: URL?
-   
     
     
     @Environment(\.dismiss) var dismiss
     var body: some View {
-
+        
         NavigationView {
-            ScrollView {
+         
+            ZStack {
                
-                
-                ZStack {
+             
                     AsyncImage(url: movie.posterURL){image in
-                            image
+                        image
                             .resizable()
-                            .scaledToFit()
-                                                    
+                            .aspectRatio(contentMode: .fit)
+                        
                     } placeholder: {
                         Color.black
                     }
                     .frame(maxHeight: .infinity, alignment: .top)
-              
-//                   Image("black-adam-image")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(maxHeight: .infinity, alignment: .top)
+                ScrollView (showsIndicators: false) {
+                    ZStack {
                     VStack {
                         
                         LinearGradient (colors: gradient, startPoint: .top, endPoint: .bottom)
-                            .frame(height: 500)
-                            .padding(.top, 200)
+                            .frame(height: 750)
+                            .padding(.top, 50)
+                            .offset(y: -10)
                         
                     } .frame(maxHeight: .infinity, alignment: .bottom)
-                    
-                    
-                    VStack (alignment: .center, spacing: 0) {
-                        Text (movie.title)
-                            .font(Fonts.movieHeadline)
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                            .padding(.top, 200)
-                   
-                      
+               
+                        Circle()
+                            .foregroundColor(Color("backgroundColor"))
+                            .blur(radius: 140)
+                            .frame(height: 400)
+                            .offset(x: 0, y: 100)
+                       
+                        
+                        Group{
+                            VStack (alignment: .center, spacing: 0) {
+                                Text (movie.title)
+                                    .font(Fonts.movieHeadline)
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                
+                                
+                                
+                                
+                                HStack (alignment: .center, spacing: 10) {
+                                    Text ("2022")
+                                        .font(Fonts.movieSubtitle)
+                                    
+                                        .foregroundColor(.white)
+                                    Text("•")
+                                        .font(Fonts.movieSubtitle)
+                                        .foregroundColor(.white)
+                                    Text("Action")
+                                        .font(Fonts.movieSubtitle)
+                                        .foregroundColor(.white)
+                                    Text("•")
+                                        .font(Fonts.movieSubtitle)
+                                        .foregroundColor(.white)
+                                    Text("2h 5m")
+                                        .font(Fonts.movieSubtitle)
+                                        .foregroundColor(.white)
+                                    
+                                    
+                                }
+                               
+                              
+                                    
+                                    Text ("IMDB: 8.9/10")
+                                        .font(Fonts.imdbDescription)
+                                    
+                                        .foregroundColor(.white)
+                                    
+                                     
+                                    
+                                
+                                .padding(.top, 10)
+                                
+                                Text("Metacritic: 82%")
+                                    .font(Fonts.imdbDescription)
+                                    .foregroundColor(.white)
+                                
+                                Text("Rotten Tomatoes: 97%")
+                                    .font(Fonts.imdbDescription)
+                                .foregroundColor(.white)
+                                
+                                
+                                Text (movie.overview)
+                                    .frame(width: 350, height: 110)
+                                    .font(Fonts.description)
+                                    .foregroundColor(.white)
+                                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20))
+                                    //.padding()
+                               
+                                
+                                HStack (alignment: .center){
+                                Text("November 23")
+                                    .font(Fonts.dateDetail)
+                                .foregroundColor(.white)
+                                .padding(.leading, 23)
+                                    Image("arrow")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 7)
+                                 
+                                    Spacer()
+                                }
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    HStack{
+                                        Button(action: {
+                                            print("Buy ticket")
+                                        }, label: {
+                                            Text("14:00")
+                                                .font(Fonts.timeeDetail)
+                                                .foregroundColor(.black)
+                                                .frame(width: 80, height: 30)
+                                                .background(Color.white)
+                                                .tracking(-0.4)
+                                            
+                                            
+                                                .cornerRadius(50)
+                                            
+                                        })
+                                        Button(action: {
+                                            print("Buy ticket")
+                                        }, label: {
+                                            Text("17:00")
+                                                .font(Fonts.timeeDetail)
+                                                .foregroundColor(.black)
+                                                .frame(width: 80, height: 30)
+                                                .background(Color.white)
+                                                .tracking(-0.4)
+
+                                            
+                                            
+                                                .cornerRadius(50)
+                                            
+                                        })
+                                        Button(action: {
+                                            print("Buy ticket")
+                                        }, label: {
+                                            Text("19:00")
+                                                .font(Fonts.timeeDetail)
+                                                .foregroundColor(.black)
+                                                .frame(width: 80, height: 30)
+                                                .background(Color.white)
+                                                .tracking(-0.4)
+
+                                            
+                                            
+                                                .cornerRadius(50)
+                                            
+                                        })
+                                        Button(action: {
+                                            print("Buy ticket")
+                                        }, label: {
+                                            Text("21:00")
+                                                .font(Fonts.timeeDetail)
+                                                .foregroundColor(.black)
+                                                .frame(width: 80, height: 30)
+                                                .background(Color.white)
+                                                .tracking(-0.4)
+
+                                            
+                                            
+                                                .cornerRadius(50)
+                                            
+                                        })
+                                        
+                                    }
+                                    .offset(x: 25)
+                                    .padding(.trailing, 50)
+                                }
+                          
+                                .padding(.top, 10)
+//                                HStack{
+//                                Text("November 24")
+//                                    .font(Fonts.dateDetail)
+//                                .foregroundColor(.white)
+//                                .padding(.leading, 23)
+//                                .padding(.top, 20)
+//
+//                                    Spacer()
+//                                }
+//                                ScrollView(.horizontal, showsIndicators: false) {
+//                                    HStack{
+//                                        Button(action: {
+//                                            print("Buy ticket")
+//                                        }, label: {
+//                                            Text("14:00")
+//                                                .font(Fonts.dateDetail)
+//                                                .foregroundColor(.black)
+//                                                .frame(width: 100, height: 35)
+//                                                .background(Color.white)
+//                                                .tracking(-0.4)
+//
+//
+//
+//                                                .cornerRadius(50)
+//
+//                                        })
+//                                        Button(action: {
+//                                            print("Buy ticket")
+//                                        }, label: {
+//                                            Text("17:00")
+//                                                .font(Fonts.dateDetail)
+//                                                .foregroundColor(.black)
+//                                                .frame(width: 100, height: 35)
+//                                                .background(Color.white)
+//                                                .tracking(-0.4)
+//
+//
+//
+//                                                .cornerRadius(50)
+//
+//                                        })
+//                                        Button(action: {
+//                                            print("Buy ticket")
+//                                        }, label: {
+//                                            Text("19:00")
+//                                                .font(Fonts.dateDetail)
+//                                                .foregroundColor(.black)
+//                                                .frame(width: 100, height: 35)
+//                                                .background(Color.white)
+//                                                .tracking(-0.4)
+//
+//
+//
+//
+//                                                .cornerRadius(50)
+//
+//                                        })
+//                                        Button(action: {
+//                                            print("Buy ticket")
+//                                        }, label: {
+//                                            Text("21:00")
+//                                                .font(Fonts.dateDetail)
+//                                                .foregroundColor(.black)
+//                                                .frame(width: 100, height: 35)
+//                                                .background(Color.white)
+//                                                .tracking(-0.4)
+//
+//
+//
+//
+//                                                .cornerRadius(50)
+//
+//                                        })
+//
+//                                    }
+//                                    .offset(x: 25)
+//                                    .padding(.trailing, 50)
+//
+//
+//                                }
+//
+//                                .padding(.top, 10)
+                               
+                            }
+                            .padding(.top, 150)
                             
                            
-                        HStack (alignment: .center, spacing: 10) {
-                            Text ("2022")
-                                .font(Fonts.movieSubtitle)
-                            
-                                .foregroundColor(.white)
-                           Text("•")
-                                .font(Fonts.movieSubtitle)
-                                .foregroundColor(.white)
-                            Text("Action")
-                                .font(Fonts.movieSubtitle)
-                                .foregroundColor(.white)
-                            Text("•")
-                                .font(Fonts.movieSubtitle)
-                                 .foregroundColor(.white)
-                            Text("2h 5m")
-                                .font(Fonts.movieSubtitle)
-                                .foregroundColor(.white)
-                         
-                        }
-                        .padding(.top, 10)
-                        
-                        Text (movie.overview)
-                            .font(Fonts.description)
-                            .foregroundColor(.white)
-                        
-                            .padding()
-                            .padding(.leading, 5)
-                            .padding(.trailing, 5)
-                        
-                    }.padding(.top, 100)
-                  
-                    
-                    
-                    
-                    VStack (spacing: 0){
-                        
-                        Button {
-                            self.mode.wrappedValue.dismiss()
-                        } label: {
-                            HStack {
-                                Image(systemName: "chevron.backward.circle.fill")
-                                    .font(.system(size: 30))
-                                    .foregroundColor(.black)
-                                
-                                Spacer()
-                            }
-                            .padding(EdgeInsets(top: 50, leading: 30, bottom: 0, trailing: 0))
+                          
                             
                         }
-                        
-                        
+                       
+                    }
+                    .padding(.top, 60)
+                    .padding(.bottom, 10)
+                    
+                    
+              
+                }
+              
+                VStack (spacing: 0){
+                    
+                    Button {
+                        self.mode.wrappedValue.dismiss()
+                    } label: {
+                        HStack {
+                            Image(systemName: "chevron.backward.circle.fill")
+                                .font(.system(size: 30))
+                                .foregroundColor(.black)
+                            
+                            Spacer()
+                        }
+                        .padding(EdgeInsets(top: 50, leading: 30, bottom: 0, trailing: 0))
                         
                     }
                     
-                    .frame(maxHeight: .infinity, alignment: .top)
+                    
                     
                 }
                 
+                .frame(maxHeight: .infinity, alignment: .top)
+                ZStack{
+
+                    Rectangle()
+                        
+                        .foregroundColor(Color.black)
+                        .blur(radius: 40)
+                        .offset(x: 0, y: 50)
+                        .frame(height: 100)
+                   
+                    VStack (){
+                        Button(action: {
+                            print("Buy ticket")
+                        }, label: {
+                            Text("Buy ticket")
+                                .font(Fonts.buttonFont)
+                                .foregroundColor(.black)
+                                .frame(width: 200, height: 55)
+                                .background(Color.white)
+                            
+                            
+                                .cornerRadius(50)
+                            
+                        })
+                    }
+                    
+                }
                 
-            }
+                .offset(y: 350)
+                }
+            
+                
+                
+            
             .background(Color(.black))
             .ignoresSafeArea()
-
+            
         }
         
         .navigationBarBackButtonHidden(true)
         
         .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
             
-            if(value.startLocation.x < 10 && value.translation.width > 100) {
+            if(value.startLocation.x < 20 && value.translation.width > 100) {
                 self.mode.wrappedValue.dismiss()
             }
             
         }))
         
         
-        
     }
-    private var movieGenreYearDurationText: String {
-        "\(movie.genreText) · \(movie.yearText) · \(movie.durationText)"
-    }
+   
 }
 struct MovieDetailListView: View {
-       
+    
     let movie: Movie
     var body: some View {
-                movieDescriptionSection
+        movieDescriptionSection
     }
     private var movieDescriptionSection: some View {
         VStack (alignment: .center, spacing: 10){
@@ -161,10 +384,10 @@ struct MovieDetailListView: View {
                 Text (movie.yearText)
                     .font(Fonts.movieSubtitle)
                     .foregroundColor(.white)
-                .padding(.top, 10)
+                    .padding(.top, 10)
             }
             
-                               
+            
             
             Text (movie.overview)
                 .font(Fonts.description)
@@ -193,7 +416,7 @@ struct MovieDetailImage: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(maxHeight: .infinity, alignment: .top)
-                    
+                
             }
         }
         .scaledToFit()
