@@ -30,7 +30,7 @@ struct MoviesView: View {
                         .font(Fonts.categories)
                         .padding(.leading, 20)
                         .padding(.top, 10)
-                        .padding(.bottom, 10)
+                        .padding(.bottom, 5)
                     
                     ScrollView (.horizontal, showsIndicators: false){
                         HStack (spacing: 20) {
@@ -59,7 +59,7 @@ struct MoviesView: View {
                             .font(Fonts.categories)
                             .padding(.leading, 20)
                             .padding(.top, 10)
-                            .padding(.bottom, 10)
+                            .padding(.bottom, 5)
                         
                         ScrollView (.horizontal, showsIndicators: false){
                             HStack (spacing: 10) {
@@ -88,7 +88,7 @@ struct MoviesView: View {
                             .font(Fonts.categories)
                             .padding(.leading, 20)
                             .padding(.top, 10)
-                            .padding(.bottom, 10)
+                            .padding(.bottom, 5)
                         
                         ScrollView (.horizontal, showsIndicators: false){
                             HStack (spacing: 15) {
