@@ -46,4 +46,7 @@ struct Fonts {
     public static var dateDetail: Font {
         return Font.custom("AvenirNext-Bold", size: 18)
     }
+    public static var ticketsName: Font {
+        return Font.custom("AvenirNext-Bold", size: 22)
+    }
 }
