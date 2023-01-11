@@ -39,7 +39,7 @@ struct DetailView: View {
                         Color.black
                     }
                     .frame(maxHeight: .infinity, alignment: .top)
-                ScrollView (showsIndicators: false) {
+                    //ScrollView (showsIndicators: false) {
                     ZStack {
                     VStack {
                         
@@ -197,88 +197,7 @@ struct DetailView: View {
                                 }
                           
                                 .padding(.top, 10)
-//                                HStack{
-//                                Text("November 24")
-//                                    .font(Fonts.dateDetail)
-//                                .foregroundColor(.white)
-//                                .padding(.leading, 23)
-//                                .padding(.top, 20)
-//
-//                                    Spacer()
-//                                }
-//                                ScrollView(.horizontal, showsIndicators: false) {
-//                                    HStack{
-//                                        Button(action: {
-//                                            print("Buy ticket")
-//                                        }, label: {
-//                                            Text("14:00")
-//                                                .font(Fonts.dateDetail)
-//                                                .foregroundColor(.black)
-//                                                .frame(width: 100, height: 35)
-//                                                .background(Color.white)
-//                                                .tracking(-0.4)
-//
-//
-//
-//                                                .cornerRadius(50)
-//
-//                                        })
-//                                        Button(action: {
-//                                            print("Buy ticket")
-//                                        }, label: {
-//                                            Text("17:00")
-//                                                .font(Fonts.dateDetail)
-//                                                .foregroundColor(.black)
-//                                                .frame(width: 100, height: 35)
-//                                                .background(Color.white)
-//                                                .tracking(-0.4)
-//
-//
-//
-//                                                .cornerRadius(50)
-//
-//                                        })
-//                                        Button(action: {
-//                                            print("Buy ticket")
-//                                        }, label: {
-//                                            Text("19:00")
-//                                                .font(Fonts.dateDetail)
-//                                                .foregroundColor(.black)
-//                                                .frame(width: 100, height: 35)
-//                                                .background(Color.white)
-//                                                .tracking(-0.4)
-//
-//
-//
-//
-//                                                .cornerRadius(50)
-//
-//                                        })
-//                                        Button(action: {
-//                                            print("Buy ticket")
-//                                        }, label: {
-//                                            Text("21:00")
-//                                                .font(Fonts.dateDetail)
-//                                                .foregroundColor(.black)
-//                                                .frame(width: 100, height: 35)
-//                                                .background(Color.white)
-//                                                .tracking(-0.4)
-//
-//
-//
-//
-//                                                .cornerRadius(50)
-//
-//                                        })
-//
-//                                    }
-//                                    .offset(x: 25)
-//                                    .padding(.trailing, 50)
-//
-//
-//                                }
-//
-//                                .padding(.top, 10)
+              
                                
                             }
                             .padding(.top, 150)
@@ -294,7 +213,7 @@ struct DetailView: View {
                     
                     
               
-                }
+                
               
                 VStack (spacing: 0){
                     
